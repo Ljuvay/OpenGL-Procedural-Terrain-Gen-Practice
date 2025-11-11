@@ -365,3 +365,11 @@ FodyWeavers.xsd
 # My Ignore
 *.ipch
 .vs/
+glm-1.0.2/.github/
+glm-1.0.2/cmake/
+glm-1.0.2/test/
+glm-1.0.2/util/
+glm-1.0.2/doc/
+glm-1.0.2/manual.md
+glm-1.0.2/readme.md
+glm-1.0.2/copying.txt

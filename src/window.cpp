@@ -71,8 +71,8 @@ void Window::createWindow()
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
     //Chunk ourChunk;
-    Shader ourShader("vertex.glsl", "fragment.glsl");
-    Shader waterShader("waterVert.glsl", "waterFrag.glsl");
+    Shader ourShader("shaders/vertex.glsl", "shaders/fragment.glsl");
+    Shader waterShader("shaders/waterVert.glsl", "shaders/waterFrag.glsl");
     Terrain ourTerrain;
     Water ourWater;
 

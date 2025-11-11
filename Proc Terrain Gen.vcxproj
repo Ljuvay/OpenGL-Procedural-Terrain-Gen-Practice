@@ -18,6 +18,38 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\camera.cpp" />
+    <ClCompile Include="src\Inputs.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\Noise.cpp" />
+    <ClCompile Include="src\settings.cpp" />
+    <ClCompile Include="src\shader.cpp" />
+    <ClCompile Include="src\terrain.cpp" />
+    <ClCompile Include="src\water.cpp" />
+    <ClCompile Include="src\window.cpp" />
+    <ClCompile Include="thirdparty\glad.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".gitignore" />
+    <None Include="shaders\fragment.glsl" />
+    <None Include="shaders\vertex.glsl" />
+    <None Include="shaders\waterFrag.glsl" />
+    <None Include="shaders\waterVert.glsl" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\VS Library\glad\glad.h" />
+    <ClInclude Include="..\..\..\VS Library\include\glfw3.h" />
+    <ClInclude Include="..\..\..\VS Library\include\glfw3native.h" />
+    <ClInclude Include="include\camera.h" />
+    <ClInclude Include="include\Inputs.h" />
+    <ClInclude Include="include\Noise.h" />
+    <ClInclude Include="include\settings.h" />
+    <ClInclude Include="include\shader.h" />
+    <ClInclude Include="include\terrain.h" />
+    <ClInclude Include="include\water.h" />
+    <ClInclude Include="include\window.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -71,7 +103,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\Users\DCKAU\Desktop\VS Library\include;C:\Users\DCKAU\Desktop\VS Library\glad;C:\Users\DCKAU\Desktop\VS Library\KHR;C:\Users\DCKAU\Desktop\VS Library;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Users\DCKAU\Desktop\Projects\Proc Terrain Gen\Proc Terrain Gen\thirdparty;C:\Users\DCKAU\Desktop\Projects\Proc Terrain Gen\Proc Terrain Gen\shaders;C:\Users\DCKAU\Desktop\Projects\Proc Terrain Gen\Proc Terrain Gen\include;C:\Users\DCKAU\Desktop\VS Library\include;C:\Users\DCKAU\Desktop\VS Library\glad;C:\Users\DCKAU\Desktop\VS Library\KHR;C:\Users\DCKAU\Desktop\VS Library;$(IncludePath)</IncludePath>
     <LibraryPath>C:\Users\DCKAU\Desktop\VS Library\include;C:\Users\DCKAU\Desktop\VS Library\KHR;C:\Users\DCKAU\Desktop\VS Library\glad;C:\Users\DCKAU\Desktop\VS Library;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -127,36 +159,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\..\glad.c" />
-    <ClCompile Include="camera.cpp" />
-    <ClCompile Include="Inputs.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="Noise.cpp" />
-    <ClCompile Include="settings.cpp" />
-    <ClCompile Include="shader.cpp" />
-    <ClCompile Include="terrain.cpp" />
-    <ClCompile Include="water.cpp" />
-    <ClCompile Include="window.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\..\VS Library\include\glfw3.h" />
-    <ClInclude Include="..\..\..\VS Library\include\glfw3native.h" />
-    <ClInclude Include="camera.h" />
-    <ClInclude Include="Inputs.h" />
-    <ClInclude Include="Noise.h" />
-    <ClInclude Include="settings.h" />
-    <ClInclude Include="shader.h" />
-    <ClInclude Include="terrain.h" />
-    <ClInclude Include="water.h" />
-    <ClInclude Include="window.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="fragment.glsl" />
-    <None Include="vertex.glsl" />
-    <None Include="waterFrag.glsl" />
-    <None Include="waterVert.glsl" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
