@@ -1,0 +1,7 @@
+# Exclude project files from language stats
+*.vcxproj linguist-generated
+*.sln linguist-generated
+*.filters linguist-generated
+
+# Treat shader files as C++
+*.glsl linguist-language=C++
