@@ -365,11 +365,15 @@ FodyWeavers.xsd
 # My Ignore
 *.ipch
 .vs/
-glm-1.0.2/.github/
-glm-1.0.2/cmake/
-glm-1.0.2/test/
-glm-1.0.2/util/
-glm-1.0.2/doc/
-glm-1.0.2/manual.md
-glm-1.0.2/readme.md
-glm-1.0.2/copying.txt
+
+# Ignore unnecessary GLM files
+glm-1.0.2/glm-1.0.2/.github/
+glm-1.0.2/glm-1.0.2/.gitignore
+glm-1.0.2/glm-1.0.2/CMakeLists.txt
+glm-1.0.2/glm-1.0.2/cmake/
+glm-1.0.2/glm-1.0.2/copying.txt
+glm-1.0.2/glm-1.0.2/doc/
+glm-1.0.2/glm-1.0.2/manual.md
+glm-1.0.2/glm-1.0.2/readme.md
+glm-1.0.2/glm-1.0.2/test/
+glm-1.0.2/glm-1.0.2/util/
