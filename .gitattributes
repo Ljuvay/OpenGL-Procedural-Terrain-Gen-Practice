@@ -6,4 +6,5 @@
 # Treat shader files as C++
 *.glsl linguist-language=C++
 
-glm.1.0.2/** linguist-vendored
+thirdparty/glm-1.0.2/** linguist-vendored
+
