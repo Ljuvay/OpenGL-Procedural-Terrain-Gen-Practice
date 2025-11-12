@@ -148,13 +148,7 @@ void Window::createWindow()
             camera.ProcessInputs(UP, deltaTime);
         if (glfwGetKey(window, GLFW_KEY_LEFT_CONTROL) == GLFW_PRESS)
             camera.ProcessInputs(DOWN, deltaTime);
-
-        // draw calls here
         
-        
-
-        
-
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
