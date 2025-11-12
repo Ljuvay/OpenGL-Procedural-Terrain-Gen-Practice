@@ -65,6 +65,9 @@
     <None Include=".gitignore">
       <Filter>3rdParty</Filter>
     </None>
+    <None Include=".gitattributes">
+      <Filter>3rdParty</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\camera.h">
