@@ -12,15 +12,18 @@ class Chunk
 {
 private:
 	std::vector<float> vertices;
+	std::vector<unsigned int> indices;
 	unsigned int indicesCount;
 	unsigned int VAO, VBO, EBO;
 public:
 	Chunk();
-	Chunk(vector<float> location);
+	Chunk(vector<float> location, double seedX, double seedY, double& noiseVal);
 	void draw() const;
 	unsigned int getIndCount();
 	void setIndCount(unsigned int i);
 	void TerrColor(float y, double maxH, std::vector<float>& verts);
+	std::vector<float> getVerts();
+	std::vector<unsigned int> getInds();
 };
 
 class Terrain

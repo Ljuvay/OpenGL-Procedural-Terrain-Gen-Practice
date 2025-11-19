@@ -10,6 +10,7 @@
 #include "terrain.h"
 #include "camera.h"
 #include "water.h"
+#include "objExporter.h"
 
 using namespace std;
 
@@ -79,6 +80,8 @@ void Window::createWindow()
     std::vector<float> tempWater;
     tempWater.push_back(5);
 
+    objExporter ourExporter;
+
     ourWater.createWater(tempWater);
     ourTerrain.generateTerrain(5, 5);
     //Camera camera(glm::vec3(0.0f, 0.0f, 3.0f));
@@ -103,10 +106,12 @@ void Window::createWindow()
         deltaTime = currentFrame - lastFrame;
         lastFrame = currentFrame;
 
+        /*
         if (static_cast<int>(deltaTime) % 100000 == 0) {
             cout << "Camera Position" << endl;
             cout << camera.Position.x << " " << camera.Position.y << " " << camera.Position.z << endl;
         }
+        */
 
         userGetInputs(window);
 
@@ -134,6 +139,8 @@ void Window::createWindow()
         waterShader.setMat4("model", waterModel);
         waterShader.setFloat("u_time", glfwGetTime());
         ourWater.draw();
+
+        
         
 
         if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
@@ -148,6 +155,9 @@ void Window::createWindow()
             camera.ProcessInputs(UP, deltaTime);
         if (glfwGetKey(window, GLFW_KEY_LEFT_CONTROL) == GLFW_PRESS)
             camera.ProcessInputs(DOWN, deltaTime);
+        if (glfwGetKey(window, GLFW_KEY_O) == GLFW_PRESS)
+            ourExporter.outputObj(ourTerrain, "output.obj");
+            
         
         glfwSwapBuffers(window);
         glfwPollEvents();

@@ -16,6 +16,9 @@
     <Filter Include="3rdParty">
       <UniqueIdentifier>{e03d4e14-f54b-4ed5-9cc5-d551d9530cd6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Output Files">
+      <UniqueIdentifier>{5e395877-b138-4a2d-aaa6-e778391061c9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\camera.cpp">
@@ -47,6 +50,9 @@
     </ClCompile>
     <ClCompile Include="thirdparty\glad.c">
       <Filter>3rdParty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\objExporter.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -103,5 +109,13 @@
     <ClInclude Include="..\..\..\VS Library\include\glfw3native.h">
       <Filter>3rdParty</Filter>
     </ClInclude>
+    <ClInclude Include="objExporter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="output.obj">
+      <Filter>Output Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

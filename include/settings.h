@@ -3,7 +3,7 @@
 
 #include <string>
 
-const float chunkWidth = 2048.0f;
+const float chunkWidth = 256.0f;
 
 const float renderDistance = 1024.0f;
 
