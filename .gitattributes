@@ -3,8 +3,8 @@
 *.sln linguist-generated
 *.filters linguist-generated
 
-# Treat shader files as C++
-*.glsl linguist-language=C++
+# Treat shader files as glsl
+*.glsl linguist-language=GLSL
 
 thirdparty/glm-1.0.2/** linguist-vendored
 
