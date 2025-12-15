@@ -26,6 +26,9 @@
 #include "shader.h"
 #include "window.h"
 #include "terrain.h"
+#include "Noise.h"
+#include "water.h"
+#include "objExporter.h"
 using namespace std;
 
 
@@ -36,6 +39,23 @@ int main()
 
 	Window* ourWindow = new Window();
 	ourWindow->createWindow();
+
+    //Chunk ourChunk;
+    Shader ourShader("shaders/vertex.glsl", "shaders/fragment.glsl");
+    Shader waterShader("shaders/waterVert.glsl", "shaders/waterFrag.glsl");
+    Terrain ourTerrain;
+    Water ourWater;
+
+    std::vector<float> tempWater;
+    tempWater.push_back(5);
+
+    objExporter ourExporter;
+
+    ourWater.createWater(tempWater);
+    ourTerrain.generateTerrain(5, 5);
+    //Camera camera(glm::vec3(0.0f, 0.0f, 3.0f));
+
+    
 
 	//clean-up
 	glfwTerminate();
