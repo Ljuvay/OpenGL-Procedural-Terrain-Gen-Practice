@@ -102,26 +102,7 @@ void Water::setIndCount(unsigned int i) {
 void Water::WaterColor(float y, double H, std::vector<float>& verts) {
 	double Hscale = y / H;
 
-	if (Hscale <= 0.425) {
-		// Water
-		verts.push_back(0.000f); verts.push_back(0.200f); verts.push_back(0.600f);
-	}
-	else if (Hscale <= 0.45) {
-		// Sand
-		verts.push_back(0.000f); verts.push_back(0.200f); verts.push_back(0.600f);
-	}
-	else if (Hscale <= 0.50) {
-		// Grass
-		verts.push_back(0.000f); verts.push_back(0.200f); verts.push_back(0.600f);
-	}
-	else if (Hscale <= 0.60) {
-		// Rock
-		verts.push_back(0.000f); verts.push_back(0.200f); verts.push_back(0.600f);
-	}
-	else {
-		// Snow
-		verts.push_back(0.000f); verts.push_back(0.200f); verts.push_back(0.600f);
-	}
+	verts.push_back(0.000f); verts.push_back(0.000f); verts.push_back(0.200f);
 }
 
 void Water::draw() const {

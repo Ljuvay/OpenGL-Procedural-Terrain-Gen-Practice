@@ -54,6 +54,9 @@
     <ClCompile Include="src\objExporter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Chunk.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="shaders\fragment.glsl">
@@ -110,6 +113,9 @@
       <Filter>3rdParty</Filter>
     </ClInclude>
     <ClInclude Include="objExporter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Chunk.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

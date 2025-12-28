@@ -3,8 +3,9 @@
 
 #include <string>
 
-const float chunkWidth = 256.0f;
+const float chunkWidth = 16.0f;
 
+const float chunkRenderDistance = 64.0f;
 const float renderDistance = 1024.0f;
 
 const int CAMSPEEDSETTING = 25;
@@ -19,7 +20,7 @@ extern float lastFrame;
 * ----- NOISE TYPE -----
 * Options:
 * PERLIN
-* SIMPLEX
+* 
 */
 const std::string NOISETYPE = "PERLIN";
 

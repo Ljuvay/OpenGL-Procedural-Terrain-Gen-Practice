@@ -45,17 +45,17 @@ int main()
     Shader waterShader("shaders/waterVert.glsl", "shaders/waterFrag.glsl");
     Terrain ourTerrain;
     Water ourWater;
+    objExporter ourExporter;
 
     std::vector<float> tempWater;
     tempWater.push_back(5);
 
-    objExporter ourExporter;
-
     ourWater.createWater(tempWater);
-    ourTerrain.generateTerrain(5, 5);
+    ourTerrain.generateTerrain(2,2);
     //Camera camera(glm::vec3(0.0f, 0.0f, 3.0f));
 
-    
+    // Run the main loop
+    ourWindow->run(ourTerrain, ourWater, ourShader, waterShader, ourExporter);
 
 	//clean-up
 	glfwTerminate();

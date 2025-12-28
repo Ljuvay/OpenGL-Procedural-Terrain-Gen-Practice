@@ -71,21 +71,6 @@ void Window::createWindow()
 
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
-    //Chunk ourChunk;
-    Shader ourShader("shaders/vertex.glsl", "shaders/fragment.glsl");
-    Shader waterShader("shaders/waterVert.glsl", "shaders/waterFrag.glsl");
-    Terrain ourTerrain;
-    Water ourWater;
-
-    std::vector<float> tempWater;
-    tempWater.push_back(5);
-
-    objExporter ourExporter;
-
-    ourWater.createWater(tempWater);
-    ourTerrain.generateTerrain(5, 5);
-    //Camera camera(glm::vec3(0.0f, 0.0f, 3.0f));
-
     glViewport(0, 0, 800, 600);
 
     glfwSetCursorPosCallback(window, mouse_callback);
@@ -99,21 +84,16 @@ void Window::createWindow()
 
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+}
 
+void Window::run(Terrain& terrain, Water& water, Shader& terrainShader, Shader& waterShader, objExporter& exporter) {
     while (!glfwWindowShouldClose(window))
     {
         float currentFrame = static_cast<float>(glfwGetTime());
         deltaTime = currentFrame - lastFrame;
         lastFrame = currentFrame;
 
-        /*
-        if (static_cast<int>(deltaTime) % 100000 == 0) {
-            cout << "Camera Position" << endl;
-            cout << camera.Position.x << " " << camera.Position.y << " " << camera.Position.z << endl;
-        }
-        */
-
-        userGetInputs(window);
+        userGetInputs(window, terrain, exporter, deltaTime);
 
         glClearColor(0.412f, 0.847f, 1.000f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -121,47 +101,30 @@ void Window::createWindow()
         glm::mat4 projection = glm::perspective(glm::radians(45.0f), float(SCR_WIDTH) / float(SCR_HEIGHT), 0.1f, renderDistance);
         glm::mat4 view = camera.GetViewMatrix();
         glm::mat4 model = glm::mat4(1.0f);
-        ourShader.setMat4("model", model);
 
+        terrainShader.use();
+        terrainShader.setMat4("model", model);
+        terrainShader.setMat4("projection", projection);
+        terrainShader.setMat4("view", view);
+        glUniform1f(
+            glGetUniformLocation(terrainShader.ID, "maxHeight"),
+            500.0f
+        );
 
-        ourShader.use();
-        ourShader.setMat4("projection", projection);
-        ourShader.setMat4("view", view);
-        for (const Chunk& chunk : ourTerrain.chunks) {
-            chunk.draw();
-
-        }
+        terrain.generateChunks(camera.Position, terrainShader);
 
         glm::mat4 waterModel = glm::mat4(1.0f);
         waterShader.use();
         waterShader.setMat4("view", camera.GetViewMatrix());
         waterShader.setMat4("projection", projection);
         waterShader.setMat4("model", waterModel);
-        waterShader.setFloat("u_time", glfwGetTime());
-        ourWater.draw();
+        waterShader.setFloat("u_time", static_cast<float>(glfwGetTime()));
+        water.draw();
 
         
         
 
-        if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
-            camera.ProcessInputs(FORWARD, deltaTime);
-        if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
-            camera.ProcessInputs(BACKWARD, deltaTime);
-        if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
-            camera.ProcessInputs(LEFT, deltaTime);
-        if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
-            camera.ProcessInputs(RIGHT, deltaTime);
-        if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS)
-            camera.ProcessInputs(UP, deltaTime);
-        if (glfwGetKey(window, GLFW_KEY_LEFT_CONTROL) == GLFW_PRESS)
-            camera.ProcessInputs(DOWN, deltaTime);
-        if (glfwGetKey(window, GLFW_KEY_O) == GLFW_PRESS)
-            ourExporter.outputObj(ourTerrain, "output.obj");
-            
-        
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
-
-    glfwTerminate();
 }

@@ -20,9 +20,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\camera.cpp" />
+    <ClCompile Include="src\Chunk.cpp" />
     <ClCompile Include="src\Inputs.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Noise.cpp" />
+    <ClCompile Include="src\objExporter.cpp" />
     <ClCompile Include="src\settings.cpp" />
     <ClCompile Include="src\shader.cpp" />
     <ClCompile Include="src\terrain.cpp" />
@@ -43,6 +45,7 @@
     <ClInclude Include="..\..\..\VS Library\include\glfw3.h" />
     <ClInclude Include="..\..\..\VS Library\include\glfw3native.h" />
     <ClInclude Include="include\camera.h" />
+    <ClInclude Include="include\Chunk.h" />
     <ClInclude Include="include\Inputs.h" />
     <ClInclude Include="include\Noise.h" />
     <ClInclude Include="include\settings.h" />
@@ -50,6 +53,10 @@
     <ClInclude Include="include\terrain.h" />
     <ClInclude Include="include\water.h" />
     <ClInclude Include="include\window.h" />
+    <ClInclude Include="objExporter.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="output.obj" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
@@ -104,8 +111,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\Users\DCKAU\Desktop\Projects\Proc Terrain Gen\Proc Terrain Gen\thirdparty;C:\Users\DCKAU\Desktop\Projects\Proc Terrain Gen\Proc Terrain Gen\shaders;C:\Users\DCKAU\Desktop\Projects\Proc Terrain Gen\Proc Terrain Gen\include;C:\Users\DCKAU\Desktop\VS Library\include;C:\Users\DCKAU\Desktop\VS Library\glad;C:\Users\DCKAU\Desktop\VS Library\KHR;C:\Users\DCKAU\Desktop\VS Library;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\DCKAU\Desktop\VS Library\include;C:\Users\DCKAU\Desktop\VS Library\KHR;C:\Users\DCKAU\Desktop\VS Library\glad;C:\Users\DCKAU\Desktop\VS Library;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\DCKAU\OneDrive\Desktop\VS Library\glad\include;C:\Users\DCKAU\OneDrive\Desktop\VS Library\glad;C:\Users\DCKAU\OneDrive\Desktop\VS Library\glad\include\glad;C:\Users\DCKAU\OneDrive\Desktop\VS Library\include;C:\Users\DCKAU\OneDrive\Desktop\Personal Projects\OpenGL Terrain Gen\OpenGL-Procedural-Terrain-Gen-Practice\include;C:\Users\DCKAU\OneDrive\Desktop\Personal Projects\OpenGL Terrain Gen\OpenGL-Procedural-Terrain-Gen-Practice\thirdparty\glm-1.0.2;C:\Users\DCKAU\Desktop\Projects\Proc Terrain Gen\Proc Terrain Gen\thirdparty;C:\Users\DCKAU\Desktop\Projects\Proc Terrain Gen\Proc Terrain Gen\shaders;C:\Users\DCKAU\Desktop\Projects\Proc Terrain Gen\Proc Terrain Gen\include;C:\Users\DCKAU\Desktop\VS Library\include;C:\Users\DCKAU\Desktop\VS Library\glad;C:\Users\DCKAU\Desktop\VS Library\KHR;C:\Users\DCKAU\Desktop\VS Library;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\DCKAU\OneDrive\Desktop\VS Library;C:\Users\DCKAU\Desktop\VS Library\include;C:\Users\DCKAU\Desktop\VS Library\KHR;C:\Users\DCKAU\Desktop\VS Library\glad;C:\Users\DCKAU\Desktop\VS Library;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

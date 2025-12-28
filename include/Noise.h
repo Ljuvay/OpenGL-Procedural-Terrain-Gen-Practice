@@ -47,6 +47,10 @@ public:
 			z = fmod(z, repeat);
 		}
 
+		x = x < 0 ? x + 256 * (1 + (int)(-x / 256)) : x;
+		y = y < 0 ? y + 256 * (1 + (int)(-y / 256)) : y;
+		z = z < 0 ? z + 256 * (1 + (int)(-z / 256)) : z;
+
 		int xi = (int)x & 255;								// Calculate the "unit cube" that the point asked will be located in
 		int yi = (int)y & 255;								// The left bound is ( |_x_|,|_y_|,|_z_| ) and the right bound is that
 		int zi = (int)z & 255;								// plus 1.  Next we calculate the location (from 0.0 to 1.0) in that cube.
