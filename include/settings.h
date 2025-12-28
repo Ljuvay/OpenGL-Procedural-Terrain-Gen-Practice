@@ -5,8 +5,8 @@
 
 const float chunkWidth = 16.0f;
 
-const float chunkRenderDistance = 64.0f;
-const float renderDistance = 1024.0f;
+const float chunkRenderDistance = 32.0f;
+const float renderDistance = 2048.0f;
 
 const int CAMSPEEDSETTING = 25;
 

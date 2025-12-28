@@ -54,6 +54,9 @@ void Terrain::generateChunks(glm::vec3 camPos, Shader& shader) {
 	int camChunkX = static_cast<int>(floor(camPos.x / chunkWidth));
 	int camChunkZ = static_cast<int>(floor(camPos.z / chunkWidth));
 
+	int chunksCreatedThisFrame = 0;
+	const int MAX_CHUNKS_PER_FRAME = 512;
+
 	// Generate new chunks around camera if they don't exist
 	for (int i = camChunkX - chunkRenderDistance; i <= camChunkX + chunkRenderDistance; i++) {
 		for (int j = camChunkZ - chunkRenderDistance; j <= camChunkZ + chunkRenderDistance; j++) {
@@ -61,11 +64,17 @@ void Terrain::generateChunks(glm::vec3 camPos, Shader& shader) {
 
 			// If chunk doesn't exist, create it
 			if (ChunkDict.find(key) == ChunkDict.end()) {
-				glm::vec2 pos = { static_cast<float>(i), static_cast<float>(j) };
-				ChunkDict[key] = new Chunk(pos, seedX, seedY, terrPerlin);
-
+				if (chunksCreatedThisFrame < MAX_CHUNKS_PER_FRAME) {
+					glm::vec2 pos = { static_cast<float>(i), static_cast<float>(j) };
+					ChunkDict[key] = new Chunk(pos, seedX, seedY, terrPerlin);
+					chunksCreatedThisFrame++;
+				}
+				else {
+					break;  // Stop generating this frame
+				}
 			}
 		}
+		if (chunksCreatedThisFrame >= MAX_CHUNKS_PER_FRAME) { break; }
 	}
 
 	for (auto& entry : ChunkDict) {
